@@ -1,10 +1,13 @@
-// Check if user is Admins
+import { User } from "../models";
+// Check if user has rights
 export default function authorize(role) {
   return function(req, res, next) {
-    if (req.user.role === role) {
-      next();
-    } else {
-      next(new Error("Unauthorized."));
-    }
+    User.findById(req.user.id).then(user => {
+      if (user.role === role) {
+        next();
+      } else {
+        next(new Error("Unauthorized."));
+      }
+    });
   };
 }

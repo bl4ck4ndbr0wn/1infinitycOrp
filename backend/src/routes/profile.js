@@ -151,7 +151,8 @@ export default () => {
             // Save Profile
             new Profile(profileFields)
               .save()
-              .then(profile => res.json(profile));
+              .then(profile => res.json(profile))
+              .catch(err => res.status(400).json(err));
           });
         }
       });
