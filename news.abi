@@ -1,5 +1,5 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Sat Nov 10 00:13:28 2018",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Sat Nov 10 06:59:44 2018",
     "version": "eosio::abi/1.0",
     "structs": [
         {
@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "timestamp",
-                    "type": "time_point_sec"
+                    "type": "uint64"
                 },
                 {
                     "name": "title",
@@ -28,11 +28,15 @@
                 },
                 {
                     "name": "tags",
-                    "type": "string[]"
+                    "type": "string"
                 },
                 {
                     "name": "skey",
                     "type": "uint128"
+                },
+                {
+                    "name": "category",
+                    "type": "string"
                 }
             ]
         },
@@ -46,7 +50,7 @@
                 },
                 {
                     "name": "timestamp",
-                    "type": "time_point_sec"
+                    "type": "uint64"
                 },
                 {
                     "name": "title",
@@ -58,7 +62,11 @@
                 },
                 {
                     "name": "tags",
-                    "type": "string[]"
+                    "type": "string"
+                },
+                {
+                    "name": "category",
+                    "type": "string"
                 }
             ]
         },
@@ -89,8 +97,12 @@
             "base": "",
             "fields": [
                 {
-                    "name": "article_id",
+                    "name": "timestamp",
                     "type": "uint64"
+                },
+                {
+                    "name": "author",
+                    "type": "name"
                 },
                 {
                     "name": "reviewer",

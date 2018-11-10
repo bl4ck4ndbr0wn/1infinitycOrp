@@ -11,23 +11,24 @@ CONTRACT news : public contract
   public:
     news(eosio::name self, eosio::name code, datastream<const char *> stream) : contract(self, code, stream), _articles(self, self.value), _reviews(self, self.value) {}
 
-    ACTION newarticle(name & author, time_point_sec timestamp, std::string title, std::string content, std::vector<std::string> tags);
+    ACTION newarticle(name & author, uint64_t timestamp, std::string title, std::string content, std::string tags, std::string category);
 
-    ACTION review(uint64_t article_id, name reviewer, std::string review);
+    ACTION review(uint64_t timestamp, name author, name reviewer, std::string review);
 
   private:
     TABLE article
     {
         uint64_t id;
         name author;
-        time_point_sec timestamp;
+        // time_point_sec timestamp;
+        uint64_t timestamp;
         std::string title;
         std::string content;
-        std::vector<std::string> tags;
+        std::string tags;
         // std::vector<name> reviewers;
         // std::string review;
         uint128_t skey;
-
+        std::string category;
         // primary key
         uint64_t primary_key() const { return id; }
 
