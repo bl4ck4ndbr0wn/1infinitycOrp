@@ -11,7 +11,7 @@ CONTRACT news : public contract
   public:
     news(eosio::name self, eosio::name code, datastream<const char *> stream) : contract(self, code, stream), _articles(self, self.value), _reviews(self, self.value) {}
 
-    ACTION newarticle(name user, name & author, uint64_t timestamp, std::string title, std::string content, std::string tags, std::string category);
+    ACTION newarticle(name user, name & author, uint64_t timestamp, std::string title, std::string content, std::string tags, std::string category, std::string filename, std::string filepath);
 
     ACTION review(uint64_t timestamp, name author, name reviewer, std::string review);
 
@@ -26,6 +26,8 @@ CONTRACT news : public contract
         std::string title;
         std::string content;
         std::string tags;
+        std::string filename;
+        std::string filepath;
         // std::vector<name> reviewers;
         // std::string review;
         uint128_t skey;
