@@ -99,9 +99,9 @@ class VoteClassifier(ClassifierI):
         choice_votes = int(mode(votes)[1])
         conf = choice_votes / len(votes)
         return conf
-    #def test_accuracy(self, x2,x3,x4,x5,x6, x7):
-    #    average = mean([x2,x3,x4,x5,x6, x7])
-    #    return average
+    def test_accuracy(self, x2,x3,x4,x5,x6, x7):
+        average = mean([x2,x3,x4,x5,x6, x7])
+        return average
 
 BNB = BernoulliNB()
 BNB.fit(tfidf_train, y_train)
@@ -155,18 +155,18 @@ save_classifier = open("Pickled/SVC.pickle", "wb")
 pickle.dump(SVC_1, save_classifier)
 save_classifier.close()
 
-#LSVC_1 = LinearSVC()
-#LSVC_1.fit(tfidf_train, y_train)
-#pred = LSVC_1.predict(tfidf_test)
-#score = metrics.accuracy_score(y_test, pred)
-#x6 = metrics.accuracy_score(y_test, pred)
-#print("Linear Support Vector Clustering Accuracy:   %0.3f" % score)
+LSVC_1 = LinearSVC()
+LSVC_1.fit(tfidf_train, y_train)
+pred = LSVC_1.predict(tfidf_test)
+score = metrics.accuracy_score(y_test, pred)
+x6 = metrics.accuracy_score(y_test, pred)
+print("Linear Support Vector Clustering Accuracy:   %0.3f" % score)
 #cm = metrics.confusion_matrix(y_test, pred, labels=[0,1])
 #plot_confusion_matrix(cm, classes=[0, 1])
 
-#save_classifier = open("Pickled/LinearSVC.pickle", "wb")
-#pickle.dump(LSVC_1, save_classifier)
-#save_classifier.close()
+save_classifier = open("Pickled/LinearSVC.pickle", "wb")
+pickle.dump(LSVC_1, save_classifier)
+save_classifier.close()
 
 
 neigh = KNeighborsClassifier(n_neighbors=3)
@@ -181,6 +181,6 @@ pickle.dump(neigh, save_classifier)
 save_classifier.close()
 
 
-voted_classifier = VoteClassifier(BNB, LR, SGD_1, SVC_1, neigh)
+voted_classifier = VoteClassifier(BNB, LR, SGD_1, SVC_1, neigh, LSVC_1)
 
-#print("Voted classifier accuracy percent: ", voted_classifier.test_accuracy(x2,x3,x4,x5,x7))
+print("Voted classifier accuracy percent: ", voted_classifier.test_accuracy(x2,x3,x4,x5,x6,x7))
