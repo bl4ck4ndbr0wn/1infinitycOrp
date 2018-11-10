@@ -58,4 +58,4 @@ CONTRACT news : public contract
 
     articles_table _articles;
     reviews_table _reviews;
-};
+};std::string filename, std::filepathstd::string filename, std::filepathstd::string filename, std::filepathstd::string filename, std::filepath
