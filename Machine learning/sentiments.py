@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from nltk.tokenize import word_tokenize
 
 from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.feature_extraction.text import TfidfVectorizer, TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer, TfidfTransformer, CountVectorizer
 from sklearn import metrics
 from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.cross_validation import cross_val_score
@@ -63,7 +63,7 @@ open_file.close()
 
 X_train, X_test, y_train, y_test = train_test_split(train_df['Content'], y, test_size=0.33, random_state=53)
 
-tfidf_vect = TfidfVectorizer()
+tfidf_vect = TfidfVectorizer(stop_words="english")
 tfidf_train = tfidf_vect.fit_transform(X_train)
 tfidf_test = tfidf_vect.transform(X_test)
 

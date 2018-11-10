@@ -4,6 +4,8 @@ from smtplib import SMTP
 from email.message import EmailMessage
 import webhoseio
 import json, pickle
+from newsapi import NewsApiClient
+
 
 open_file = open("Pickled/email.pickle", "rb")
 email = pickle.load(open_file)
@@ -36,8 +38,8 @@ def index():
 		"message": "Success"
 		})
 
-@api.route("/data/<message>", methods=["GET", "PUT"])
-def data(message):
+@api.route("/data/<message>/<tags>", methods=["GET", "PUT"])
+def data(message, tags):
 	a = s.sentiment(str(message))
 	if a[0] == 1:
 		sendMail()
@@ -46,20 +48,20 @@ def data(message):
 			})
 	else:
 		return json.dumps({
-			"message": "Valid News"
+			"message": "Valid News",
+			"urls": getRelation(tags)
 			})
 
 
-# def getRelation(topic):
-# 	webhoseio.config(token="79e8676f-db2a-44a4-a485-e9df62514193")
-# 	q = topic + "language:english"
-# 	query_params = {
-# 		"q": q ,
-# 		"sort": "relevancy"
-# 		}
-# 	    output = webhoseio.query("filterWebContent", query_params)
-# 	    print output['posts'][0]['text'] # Print the text of the first post
-# 	    print output['posts'][0]['published'] # Print the text of the first post publication date
+def getRelation(topic):
+	urls = []
+	for i in topic:
+		newsapi = NewsApiClient(api_key="87d5495100204ee0af02b65139095e09")
+		top_headlines = newsapi.get_top_headlines(q=i,
+                                          sources='bbc-news,the-verge',
+                                          language='en')
+		urls.append(top_headlines["urls"])
+	return urls
 
 	    
 # 	# Get the next batch of posts
