@@ -1,8 +1,9 @@
-import sentiments as s
+import pickle
 
-print(s.sentiment("This movie was awesome the acting was great, and there were pythons"))
-print(s.sentiment("fake"))
-print(s.sentiment("Raila Killed"))
-print(s.sentiment("President killed"))
-print(s.sentiment("Parliament"))
-print(s.sentiment("Trump jailed"))
+save_email = open("Pickled/email.pickle", "wb")
+pickle.dump(email, save_email)
+save_email.close()
+
+save_password = open("Pickled/password.pickle", "wb")
+pickle.dump(password, save_password)
+save_password.close()

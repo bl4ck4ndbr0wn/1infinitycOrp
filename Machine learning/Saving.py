@@ -99,8 +99,8 @@ class VoteClassifier(ClassifierI):
         choice_votes = int(mode(votes)[1])
         conf = choice_votes / len(votes)
         return conf
-    def test_accuracy(self, x2,x3,x4,x5,x6):
-        average = mean([x2,x3,x4,x5,x6])
+    def test_accuracy(self, x2,x3,x4,x5,x6, x7):
+        average = mean([x2,x3,x4,x5,x6, x7])
         return average
 
 BNB = BernoulliNB()

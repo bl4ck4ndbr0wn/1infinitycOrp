@@ -16,6 +16,7 @@ from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.cross_validation import cross_val_score
 from sklearn.pipeline import Pipeline
 
+from sklearn.neighbors import KNeighborsClassifier
 from nltk.classify.scikitlearn import SklearnClassifier
 from sklearn.naive_bayes import MultinomialNB, GaussianNB, BernoulliNB
 from sklearn.linear_model import LogisticRegression, SGDClassifier, PassiveAggressiveClassifier
@@ -97,7 +98,7 @@ SVC_1 = pickle.load(open_file)
 open_file.close()
 
 open_file = open("Pickled/KNeighborsClassifier.pickle", "rb")
-neight = pickle.load(open_file)
+neigh = pickle.load(open_file)
 open_file.close()
 
 
