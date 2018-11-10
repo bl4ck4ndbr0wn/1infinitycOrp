@@ -65,7 +65,7 @@ cleos create account eosio newsaccount EOS6PUh9rs7eddJNzqgqDx1QrspSHLRxLMcRdwHZZ
 # $2 account holder name of the smart contract
 # $3 wallet that holds the keys for the account
 # $4 password for unlocking the wallet
-# deploy_contract.sh news newsaccount newswallet $(cat news_wallet_password.txt)
+deploy_contract.sh news newsaccount newswallet $(cat news_wallet_password.txt)
 
 echo "=== create user accounts ==="
 # script for creating data into blockchain

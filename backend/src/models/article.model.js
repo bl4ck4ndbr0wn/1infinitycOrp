@@ -11,6 +11,7 @@ try {
       author: String
     },
     author: String,
+    category: String,
     title: String,
     content: String,
     tag: String,

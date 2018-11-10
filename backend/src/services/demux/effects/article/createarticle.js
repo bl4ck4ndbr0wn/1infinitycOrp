@@ -7,9 +7,9 @@ function createArticle(state, payload, blockInfo, context) {
     author: payload.data.author,
     title: payload.data.title,
     content: payload.data.content,
-    tag: payload.data.tag
+    tags: payload.data.tags
   };
-  context.socket.emit("createarticle", post);
+  context.socket.emit("newarticle", post);
 }
 
 export default createArticle;
