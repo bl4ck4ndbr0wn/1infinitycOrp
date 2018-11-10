@@ -10,15 +10,15 @@ try {
       timestamp: Number,
       author: String
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "users"
+    },
     author: String,
     category: String,
     title: String,
     content: String,
     tag: String,
-    likes: {
-      type: Number,
-      default: 0
-    },
     articleConfirmed: {
       type: Boolean,
       default: false

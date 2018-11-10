@@ -20,6 +20,7 @@ async function createArticle(state, payload, blockInfo, context) {
       title: payload.data.title,
       content: payload.data.content,
       tag: payload.data.tag,
+      category: payload.data.category,
       articleConfirmed: true
     });
     await article.save();
