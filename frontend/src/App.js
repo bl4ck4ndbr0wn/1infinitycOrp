@@ -26,6 +26,7 @@ import EditProfile from "./components/edit-profile/EditProfile";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import NotFound from "./components/not-found/NotFound";
+import CreateArticle from "./components/create-article/CreateArticle";
 
 import "./App.css";
 
@@ -77,6 +78,13 @@ class App extends Component {
                   exact
                   path="/edit-profile"
                   component={EditProfile}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-Article"
+                  component={CreateArticle}
                 />
               </Switch>
               <Route exact path="/not-found" component={NotFound} />

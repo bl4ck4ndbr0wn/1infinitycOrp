@@ -51,7 +51,7 @@ class NavbarView extends Component {
         </NavItem>
         <NavItem>
           <NavLink
-            to="/create-article"
+            to="/create-Article"
             style={{ borderRadius: "50%", background: "lightseagreen" }}
           >
             <Fa icon="pencil" />
