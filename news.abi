@@ -1,5 +1,5 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Sat Nov 10 06:59:44 2018",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Sat Nov 10 07:53:52 2018",
     "version": "eosio::abi/1.0",
     "structs": [
         {
@@ -9,6 +9,10 @@
                 {
                     "name": "id",
                     "type": "uint64"
+                },
+                {
+                    "name": "user",
+                    "type": "name"
                 },
                 {
                     "name": "author",
@@ -44,6 +48,10 @@
             "name": "newarticle",
             "base": "",
             "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
                 {
                     "name": "author",
                     "type": "name"

@@ -1,6 +1,6 @@
 #include "news.hpp"
 
-ACTION news::newarticle(name &author, uint64_t timestamp, std::string title, std::string content, std::string tags, std::string category )
+ACTION news::newarticle(name user, name &author, uint64_t timestamp, std::string title, std::string content, std::string tags, std::string category )
 {
     require_auth(author); // Require the creator of the article to sign.
     uint128_t skey = static_cast<uint128_t>(author.value) << 64 | timestamp;
@@ -9,6 +9,7 @@ ACTION news::newarticle(name &author, uint64_t timestamp, std::string title, std
         a.id = _articles.available_primary_key();
         a.skey = skey;
         a.author = author;
+        a.user = user;
         a.timestamp = timestamp;
         a.title = title;
         a.content = content;
