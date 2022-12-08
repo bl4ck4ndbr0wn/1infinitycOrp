@@ -1,5 +1,5 @@
 ## The following requirements were added by pip freeze:
-certifi==2018.8.24
+certifi==2022.12.7
 eventregistry==8.5.0
 Flask==1.0.2
 Flask-Cors==3.0.6
